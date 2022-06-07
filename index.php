@@ -1,16 +1,20 @@
 <?php
+session_start();
+$_SESSION;
 include('connect.php');
 
 if (isset($_POST['submit'])) {
+	$nick_name = $_POST['nick_name'];
 	$first_name = $_POST['first_name'];
 	$last_name = $_POST['last_name'];
+	$password = $_POST['password'];
 	$gender = $_POST['gender'];
 	$address = $_POST['address'];
 	$email = $_POST['email'];
 
 
-	$sql = "INSERT INTO PersonalDetails (`first_name`,`last_name`,`gender`,`address`,`email`) VALUES ('$first_name',
-	'$last_name','$gender','$address','$email')";
+	$sql = "INSERT INTO PersonalDetails (`nick_name`,`first_name`,`last_name`,`password`,`gender`,`address`,`email`) VALUES ('$nick_name','$first_name',
+	'$last_name','$password','$password''$gender','$address','$email')";
 
 
 	$result = mysqli_query($conn, $sql);
@@ -45,6 +49,12 @@ if (isset($_POST['submit'])) {
 		<form method="post">
 
 			<div class="form-group">
+				<label for="nickName">Nick Name:</label>
+				<input type="text" name="nick_name" autocomplete="off" id="nickName">
+			</div>
+
+
+			<div class="form-group">
 				<label for="firstName">First Name:</label>
 				<input type="text" name="first_name" autocomplete="off" id="firstName">
 			</div>
@@ -54,6 +64,12 @@ if (isset($_POST['submit'])) {
 				<label for="lastName">Last Name:</label>
 				<input type="text" name="last_name" autocomplete="off" id="lastName">
 			</div>
+
+			<div class="form-group">
+				<label for="password">Password:</label>
+				<input type="password" name="password" autocomplete="current-password" required="" id="password">
+			</div>
+
 
 
 			<div class="form-group">

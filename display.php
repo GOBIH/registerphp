@@ -20,8 +20,10 @@ include('connect.php');
       <thead>
         <tr>
           <th scope="col">id</th>
+          <th scope="col">nick_name</th>
           <th scope="col">first_name</th>
           <th scope="col">last_name</th>
+          <th scope="col">password</th>
           <th scope="col">gender</th>
           <th scope="col">address</th>
           <th scope="col">email</th>
@@ -45,8 +47,10 @@ include('connect.php');
         ?>
           <tr>
             <th scope="row"><?php echo $rows['id']; ?></th>
+            <td><?php echo $rows['nick_name']; ?></td>
             <td><?php echo $rows['first_name']; ?></td>
             <td><?php echo $rows['last_name']; ?></td>
+            <td><?php echo $rows['password']; ?></td>
             <td><?php echo $rows['gender']; ?></td>
             <td><?php echo $rows['address']; ?></td>
             <td><?php echo $rows['email']; ?></td>

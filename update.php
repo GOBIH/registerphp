@@ -4,21 +4,26 @@ $id = $_GET['updateid'];
 $sql = "select * from `PersonalDetails` where id=$id";
 $result = mysqli_query($conn, $sql);
 $rows = mysqli_fetch_array($result);
+$nick_name = $rows['nick_name'];
 $first_name = $rows['first_name'];
 $last_name = $rows['last_name'];
+$password = $rows['password'];
 $gender = $rows['gender'];
 $address = $rows['address'];
 $email = $rows['email'];
 
 if (isset($_POST['submit'])) {
+    $nick_name = $_POST['nick_name'];
     $first_name = $_POST['first_name'];
     $last_name = $_POST['last_name'];
+    $password = $_POST['password'];
     $gender = $_POST['gender'];
     $address = $_POST['address'];
     $email = $_POST['email'];
+    $custId = $_POST['custId'];
 
 
-    $sql = "update `PersonalDetails` set id=$id,first_name='$first_name',last_name='$last_name',
+    $sql = "update `PersonalDetails` set id=$id,first_name='$first_name',last_name='$last_name',password='$password',
     gender='$gender',address='$address',email='$email'
     where id =$id";
 
@@ -56,6 +61,12 @@ if (isset($_POST['submit'])) {
         <form method="post">
 
             <div class="form-group">
+				<label for="nickName">Nick Name:</label>
+				<input type="text" name="nick_name" autocomplete="off" id="nickName">
+			</div>
+
+
+            <div class="form-group">
                 <label for="firstName">First Name:</label>
                 <input type="text" name="first_name" autocomplete="off" value=<?php echo $first_name; ?> id="firstName">
             </div>
@@ -65,6 +76,12 @@ if (isset($_POST['submit'])) {
                 <label for="lastName">Last Name:</label>
                 <input type="text" name="last_name" autocomplete="off" value=<?php echo $last_name; ?> id="lastName">
             </div>
+
+            <div class="form-group">
+                <label for="password">password:</label>
+                <input type="text" name="password" autocomplete="off" value=<?php echo $password; ?> id="password">
+            </div>
+
 
 
             <div class="form-group">
@@ -85,6 +102,8 @@ if (isset($_POST['submit'])) {
             </div>
 
             <button type="submit" class="btn btn primary" name="submit">Update</button>
+
+            <input type="hidden" id="custId" name="custId" value="<?php echo $first_name; ?>">
 
         </form>
 
