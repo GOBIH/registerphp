@@ -1,6 +1,4 @@
 <?php
-session_start();
-$_SESSION;
 include('connect.php');
 
 if (isset($_POST['submit'])) {
@@ -14,7 +12,7 @@ if (isset($_POST['submit'])) {
 
 
 	$sql = "INSERT INTO PersonalDetails (`nick_name`,`first_name`,`last_name`,`password`,`gender`,`address`,`email`) VALUES ('$nick_name','$first_name',
-	'$last_name','$password','$password''$gender','$address','$email')";
+	'$last_name','$password','$gender','$address','$email')";
 
 
 	$result = mysqli_query($conn, $sql);

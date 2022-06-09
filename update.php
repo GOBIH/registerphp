@@ -1,5 +1,5 @@
+<?php include "connect.php";?>
 <?php
-include('connect.php');
 $id = $_GET['updateid'];
 $sql = "select * from `PersonalDetails` where id=$id";
 $result = mysqli_query($conn, $sql);
@@ -20,12 +20,9 @@ if (isset($_POST['submit'])) {
     $gender = $_POST['gender'];
     $address = $_POST['address'];
     $email = $_POST['email'];
-    $custId = $_POST['custId'];
 
 
-    $sql = "update `PersonalDetails` set id=$id,first_name='$first_name',last_name='$last_name',password='$password',
-    gender='$gender',address='$address',email='$email'
-    where id =$id";
+    $sql = "update `PersonalDetails` set id=$id,first_name='$first_name',last_name='$last_name',password='$password',gender='$gender',address='$address',email='$email'where id =$id";
 
 
     $result = mysqli_query($conn, $sql);
@@ -102,9 +99,6 @@ if (isset($_POST['submit'])) {
             </div>
 
             <button type="submit" class="btn btn primary" name="submit">Update</button>
-
-            <input type="hidden" id="custId" name="custId" value="<?php echo $first_name; ?>">
-
         </form>
 
     </div>
