@@ -22,7 +22,7 @@ if (isset($_POST['submit'])) {
     $email = $_POST['email'];
 
 
-    $sql = "update `PersonalDetails` set id=$id,first_name='$first_name',last_name='$last_name',password='$password',gender='$gender',address='$address',email='$email'where id =$id";
+    $sql = "update `PersonalDetails` set id=$id,nick_name='$nick_name',first_name='$first_name',last_name='$last_name',password='$password',gender='$gender',address='$address',email='$email'where id =$id";
 
 
     $result = mysqli_query($conn, $sql);
@@ -35,8 +35,6 @@ if (isset($_POST['submit'])) {
         die(mysqli_error($conn));
     }
 }
-
-
 ?>
 
 <!DOCTYPE html>

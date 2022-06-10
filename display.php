@@ -59,6 +59,7 @@ include('connect.php');
               <button class="btn btn-danger"> <a href="delete.php?deleteid=<?php echo $rows['id']; ?>" class="text-light">Delete</a></button>
             </td>
           </tr>
+
         <?php
         }
         ?>

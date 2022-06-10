@@ -1,6 +1,4 @@
-<?php
-include('validate.php');
-?>
+<?php session_start();?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -14,14 +12,15 @@ include('validate.php');
 
 <body>
     <div class="container mt-5">
+
         <h1 class="text-center">Login Page</h1>
 
         <form action="validate.php" method="POST" autocomplete="off">
 
-            <div class="form-group" style="visibility: hidden"  >
+            <!-- <div class="form-group" style="visibility: hidden"  >
 				<label for="nickName">Nick Name:</label>
 				<input type="text" name="nick_name" autocomplete="off" id="nickName">
-			</div>
+			</div> -->
 
             <div class="form-group">
                 <label class="form-label">first_name</label>
