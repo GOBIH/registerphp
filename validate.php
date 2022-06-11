@@ -1,21 +1,21 @@
-<?php 
+<?php
 
-session_start(); 
+session_start();
 
 include "connect.php";
 
 if (isset($_POST['first_name']) && isset($_POST['password'])) {
 
-    function validate($data){
+    function validate($data)
+    {
 
-       $data = trim($data);
+        $data = trim($data);
 
-       $data = stripslashes($data);
+        $data = stripslashes($data);
 
-       $data = htmlspecialchars($data);
+        $data = htmlspecialchars($data);
 
-       return $data;
-
+        return $data;
     }
 
     $first_name = validate($_POST['first_name']);
@@ -27,14 +27,12 @@ if (isset($_POST['first_name']) && isset($_POST['password'])) {
         header("Location: loginpage.php?error=User Name is required");
 
         exit();
-
-    }else if(empty($password)){
+    } else if (empty($password)) {
 
         header("Location: loginpage.php?error=Password is required");
 
         exit();
-
-    }else{
+    } else {
 
         $sql = "SELECT * FROM PersonalDetails WHERE first_name='$first_name' AND password='$password'";
 
@@ -57,30 +55,22 @@ if (isset($_POST['first_name']) && isset($_POST['password'])) {
                 header("Location: logdisplay.php");
 
                 exit();
-
-            }else{
+            } else {
 
                 header("Location: loginpage.php?error=Incorect User name or password");
 
                 exit();
-
             }
-
-        }else{
+        } else {
 
             header("Location: loginpage.php?error=Incorect User name or password");
 
             exit();
-
         }
-
     }
-
-}else{
+} else {
 
     header("Location: loginpage.php");
 
     exit();
-
 }
-
